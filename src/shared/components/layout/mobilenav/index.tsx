@@ -1,4 +1,4 @@
-import { SideBar } from "../sidebar";
+import { SideBar } from "../SideBar";
 import styles from "./MobileNav.module.css";
 
 interface MobileNavProps {

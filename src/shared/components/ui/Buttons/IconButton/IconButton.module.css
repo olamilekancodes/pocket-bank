@@ -1,0 +1,38 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: clamp(0.4rem, 1vh, 0.875rem) clamp(0.75rem, 1.1vw, 1.5rem);
+  border-radius: clamp(2em, 1.5vh, 3.125rem);
+  cursor: pointer;
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  font-weight: 500;
+  white-space: nowrap;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.primary {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+.primary:hover {
+  background-color: var(--color-bg-secondary);
+}
+
+.secondary {
+  background-color: #69a080;
+  color: var(--color-bg-primary);
+}
+
+.secondary:hover {
+  background-color: #4f7e63;
+}
+
+.icon {
+  display: flex;
+  font-size: clamp(0.875rem, 2vw, 1.1rem);
+}

@@ -1,0 +1,67 @@
+.accountBalanceBackground {
+  background-image: url("../../../../../assets/dashboard/account-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2rem 4rem;
+  min-height: 180px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accountBalanceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .accountBalanceContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 0;
+  }
+}
+
+.balanceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .balanceContainer {
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+.accountNo {
+  display: flex;
+  background-color: white;
+  padding: 6px 10px;
+  border-radius: 50px;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 0.4rem;
+}
+
+@media (min-width: 768px) {
+  .buttonContainer {
+    display: flex;
+    margin-right: clamp(5rem, 1.5vw, 3rem);
+    align-self: flex-end;
+    gap: 0.875rem;
+  }
+}

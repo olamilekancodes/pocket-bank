@@ -5,6 +5,9 @@ import { FaRegCreditCard } from "react-icons/fa6";
 import { PiTargetBold } from "react-icons/pi";
 import { PiUsersThreeBold } from "react-icons/pi";
 import { FaExchangeAlt } from "react-icons/fa";
+import { BsArrowUpRightCircleFill } from "react-icons/bs";
+import { PiPlusBold } from "react-icons/pi";
+import { TbArrowBarToLeft } from "react-icons/tb";
 
 export const NavItems = [
   { path: "/dashboard", label: "Dashboard", icon: RiHomeLine },
@@ -23,4 +26,21 @@ export const NavStrings = {
 
 export const TopBarStrings = {
   user: "Olamilekan",
+};
+
+// Dashboard
+export const DashboardStrings = {
+  accountBalance: {
+    currentBalance: "23,232.00",
+    currency: "N",
+    accountTitle: "Account No:",
+    balanceTitle: "Current Balance",
+    accountNo: "0026257267",
+  },
+
+  buttons: [
+    { title: "Transfer", icon: BsArrowUpRightCircleFill, variant: "secondary" },
+    { title: "Request", icon: TbArrowBarToLeft },
+    { title: "Deposit", icon: PiPlusBold },
+  ],
 };

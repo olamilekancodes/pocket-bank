@@ -7,7 +7,7 @@
   flex-direction: column;
 }
 
-@media (max-width: var(--breakpoint-md)) {
+@media (max-width: 768px) {
   .sidebar {
     width: 100%;
     max-width: 100vw;
@@ -17,7 +17,7 @@
   }
 }
 
-@media (max-width: var(--breakpoint-sm)) {
+@media (max-width: 480px) {
   .sidebar {
     padding: 0.75rem;
   }
@@ -75,6 +75,7 @@
   transition: all ease-in-out 0.3ss;
   border-radius: 0.875rem;
   font-size: clamp(0.875rem, 2vw, 1rem);
+  transition: background-color 0.2s ease-in-out;
 }
 
 .navItem:hover {
