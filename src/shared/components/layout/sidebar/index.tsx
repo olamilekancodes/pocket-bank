@@ -1,28 +1,41 @@
-import { NavLink } from "react-router-dom";
-import { NavItems } from "../../../constants/strings";
+import { Link, NavLink } from "react-router-dom";
+import { FiLogOut } from "react-icons/fi";
+
+import { NavItems, NavStrings } from "../../../constants/strings";
 import styles from "./Sidebar.module.css";
+import logo from "../../../../assets/logo/logo1.png";
 
 export const SideBar = () => {
   return (
     <aside className={styles.sidebar}>
-      <h2 className={styles.logo}>MyBank</h2>
+      <Link to="/dashboard" className={styles.logoContainer}>
+        <img src={logo} alt={NavStrings.logoAlt} className={styles.logoImage} />
+      </Link>
 
-      <nav className={styles.nav}>
-        {NavItems.map(({ path, label, icon: Icon }) => (
-          <NavLink
-            key={path}
-            to={path}
-            className={({ isActive }) =>
-              isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
-            }
-          >
-            <span className={styles.icon}>
-              <Icon />
-            </span>
-            {label}
-          </NavLink>
-        ))}
-      </nav>
+      <div className={styles.navItemsContainer}>
+        <nav className={styles.nav}>
+          {NavItems.map(({ path, label, icon: Icon }) => (
+            <NavLink
+              key={path}
+              to={path}
+              className={({ isActive }) =>
+                isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
+              }
+            >
+              <span className={styles.icon}>
+                <Icon />
+              </span>
+              {label}
+            </NavLink>
+          ))}
+        </nav>
+        <button className={`${styles.navItem} ${styles.navBtn}`}>
+          <span className={styles.icon}>
+            <FiLogOut />
+          </span>
+          {NavStrings.buttonTitle}
+        </button>
+      </div>
     </aside>
   );
 };

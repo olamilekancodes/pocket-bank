@@ -1,3 +1,5 @@
+// Navbar
+
 import { RiHomeLine } from "react-icons/ri";
 import { FaRegCreditCard } from "react-icons/fa6";
 import { PiTargetBold } from "react-icons/pi";
@@ -11,3 +13,8 @@ export const NavItems = [
   { path: "/insights", label: "Insights", icon: PiTargetBold },
   { path: "/recipient", label: "Recipient", icon: PiUsersThreeBold },
 ];
+
+export const NavStrings = {
+  logoAlt: "Pocket Bank Logo",
+  buttonTitle: "Log out"
+};
