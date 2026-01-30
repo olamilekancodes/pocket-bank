@@ -6,6 +6,10 @@
   border-bottom: 1px solid var(--color-border-light);
 }
 
+.menuIcon {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
 .icon {
   font-size: clamp(1rem, 2vw, 1.25rem);
 }

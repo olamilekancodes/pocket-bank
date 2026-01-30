@@ -22,17 +22,13 @@ export const SideBar = () => {
                 isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
               }
             >
-              <span className={styles.icon}>
-                <Icon />
-              </span>
+              <Icon className={styles.icon} />
               {label}
             </NavLink>
           ))}
         </nav>
         <button className={`${styles.navItem} ${styles.navBtn}`}>
-          <span className={styles.icon}>
-            <FiLogOut />
-          </span>
+          <FiLogOut className={styles.icon} />
           {NavStrings.buttonTitle}
         </button>
       </div>

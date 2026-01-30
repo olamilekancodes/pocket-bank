@@ -1,14 +1,23 @@
 import { IoNotificationsOutline } from "react-icons/io5";
 import { IoSearch } from "react-icons/io5";
+import { IoMdMenu } from "react-icons/io";
 
 import { TopBarStrings } from "../../../constants/strings";
 import { Avatar } from "../../ui/Avatar";
 import { Typography } from "../../ui/Typography";
 import styles from "./Topbar.module.css";
+import { useResponsive } from "../../../hooks/useResponsive";
 
-export const TopBar = () => {
+interface TopBarProps {
+  action: () => void;
+}
+
+export const TopBar = ({ action }: TopBarProps) => {
+  const { isMdDown } = useResponsive();
   return (
     <header className={styles.topbar}>
+      {isMdDown && <IoMdMenu className={styles.menuIcon} onClick={action} />}
+
       <IoSearch className={styles.icon} />
 
       <div className={styles.container}>

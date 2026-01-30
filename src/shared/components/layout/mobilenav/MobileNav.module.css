@@ -1,0 +1,45 @@
+.mobileNavContainer {
+  position: fixed;
+  z-index: 1000;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.5s ease-in-out,
+    visibility 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.overlayOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 230px;
+  max-width: 80vw;
+  background-color: #fff;
+  z-index: 1100;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.drawerOpen {
+  transform: translateX(0);
+}

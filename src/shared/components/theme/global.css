@@ -1,4 +1,5 @@
 @import "./colors.css";
+@import "./breakpoints.css";
 
 body {
   margin: 0;

@@ -7,6 +7,39 @@
   flex-direction: column;
 }
 
+@media (max-width: var(--breakpoint-md)) {
+  .sidebar {
+    width: 100%;
+    max-width: 100vw;
+    padding: 1rem;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+}
+
+@media (max-width: var(--breakpoint-sm)) {
+  .sidebar {
+    padding: 0.75rem;
+  }
+
+  .logoContainer {
+    margin-bottom: 1.5rem;
+  }
+
+  .logoImage {
+    width: 5rem;
+  }
+
+  .navItem {
+    padding: 8px 10px;
+    font-size: 0.875rem;
+  }
+
+  .icon {
+    font-size: 1rem;
+  }
+}
+
 .logoContainer {
   display: flex;
   margin-bottom: 2.5rem;
@@ -41,6 +74,7 @@
   color: var(--color-text-primary);
   transition: all ease-in-out 0.3ss;
   border-radius: 0.875rem;
+  font-size: clamp(0.875rem, 2vw, 1rem);
 }
 .navItem:hover {
   background-color: var(--color-bg-secondary);
@@ -54,12 +88,14 @@
 .nav .navItem span {
   display: flex;
 }
+.icon {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
 
 .navBtn {
   border: none;
   background: transparent;
   cursor: pointer;
-  font: inherit;
   width: 100%;
   text-align: left;
   padding: 10px 12px;

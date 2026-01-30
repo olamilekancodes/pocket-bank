@@ -16,14 +16,33 @@ function getBreakpoint(width: number): Breakpoint {
   return "xs";
 }
 
-export function useResponsive(): Breakpoint {
-  const [breakpoint, setBreakpoint] = useState<Breakpoint>(() =>
-    typeof window !== "undefined" ? getBreakpoint(window.innerWidth) : "lg",
+export interface UseResponsiveReturn {
+  breakpoint: Breakpoint;
+  width: number;
+  isXsUp: boolean;
+  isSmUp: boolean;
+  isMdUp: boolean;
+  isLgUp: boolean;
+  isXsDown: boolean;
+  isSmDown: boolean;
+  isMdDown: boolean;
+  isLgDown: boolean;
+  isXsOnly: boolean;
+  isSmOnly: boolean;
+  isMdOnly: boolean;
+  isLgOnly: boolean;
+}
+
+export function useResponsive(): UseResponsiveReturn {
+  const [width, setWidth] = useState<number>(() =>
+    typeof window !== "undefined" ? window.innerWidth : 1024,
   );
+
+  const breakpoint = getBreakpoint(width);
 
   useEffect(() => {
     function handleResize() {
-      setBreakpoint(getBreakpoint(window.innerWidth));
+      setWidth(window.innerWidth);
     }
 
     window.addEventListener("resize", handleResize);
@@ -32,5 +51,20 @@ export function useResponsive(): Breakpoint {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return breakpoint;
+  return {
+    breakpoint,
+    width,
+    isXsUp: width >= breakpoints.xs,
+    isSmUp: width >= breakpoints.sm,
+    isMdUp: width >= breakpoints.md,
+    isLgUp: width >= breakpoints.lg,
+    isXsDown: width < breakpoints.sm,
+    isSmDown: width < breakpoints.md,
+    isMdDown: width < breakpoints.lg,
+    isLgDown: true,
+    isXsOnly: width >= breakpoints.xs && width < breakpoints.sm,
+    isSmOnly: width >= breakpoints.sm && width < breakpoints.md,
+    isMdOnly: width >= breakpoints.md && width < breakpoints.lg,
+    isLgOnly: width >= breakpoints.lg,
+  };
 }
