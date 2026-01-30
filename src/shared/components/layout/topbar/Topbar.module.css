@@ -1,0 +1,14 @@
+.topbar {
+  height: 60px;
+  background-color: #fafafa;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px;
+}
+
+.profile {
+  font-weight: bold;
+}

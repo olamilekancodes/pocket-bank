@@ -1,0 +1,45 @@
+.sidebar {
+  width: 240px;
+  color: #1c1c1c;
+  padding: 30px;
+  background-color: #fafafa;
+  border-right: 1px solid #f4f4f4;
+}
+
+.logo {
+  font-size: 22px;
+  margin-bottom: 30px;
+  border: 2px solid red;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #1c1c1c;
+  transition: all ease-in-out 0.3ss;
+  border-radius: 0.875rem;
+  &:hover {
+    background-color: #e9e9e9;
+  }
+}
+.navItem:hover {
+  background-color: #e9e9e9;
+}
+
+.active {
+  background-color: #e9e9e9;
+  font-weight: 500;
+}
+
+.nav .navItem span {
+  display: flex;
+}
