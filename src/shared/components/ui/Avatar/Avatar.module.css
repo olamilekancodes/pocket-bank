@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
+  font-weight: 400;
   text-transform: uppercase;
   flex-shrink: 0;
   transition: transform 0.2s ease;
@@ -24,7 +24,7 @@
 }
 
 .md {
-  --avatar-size: clamp(40px, 5vw, 55px);
+  --avatar-size: clamp(38px, 6vw, 45px);
 }
 
 .lg {

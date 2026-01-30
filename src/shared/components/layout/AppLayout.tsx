@@ -10,7 +10,7 @@ type Props = {
 
 export const AppLayout = ({ children }: Props) => {
   const breakpoint = useResponsive();
-  const isMediumScreen = isBreakpointAtLeast(breakpoint, "md");
+  const isMediumScreen = isBreakpointAtLeast(breakpoint, "lg");
 
   return (
     <div className={styles.layout}>

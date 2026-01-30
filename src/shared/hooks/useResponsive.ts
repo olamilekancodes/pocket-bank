@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export type Breakpoint = "xs" | "sm" | "md" | "lg";
 
-const breakpoints = {
+export const breakpoints = {
   xs: 0,
   sm: 480,
   md: 768,

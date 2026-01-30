@@ -1,4 +1,5 @@
 import { IoNotificationsOutline } from "react-icons/io5";
+import { IoSearch } from "react-icons/io5";
 
 import { TopBarStrings } from "../../../constants/strings";
 import { Avatar } from "../../ui/Avatar";
@@ -8,14 +9,12 @@ import styles from "./Topbar.module.css";
 export const TopBar = () => {
   return (
     <header className={styles.topbar}>
-      <div className="">
-        <Typography variant="h6">{TopBarStrings.user}</Typography>
-      </div>
+      <IoSearch className={styles.icon} />
 
       <div className={styles.container}>
-        <IoNotificationsOutline size={20} />
-        <Avatar name={TopBarStrings.user} size="sm" />
-        <Typography variant="h6">{TopBarStrings.user}</Typography>
+        <IoNotificationsOutline className={styles.icon} />
+        <Avatar name={TopBarStrings.user} size="md" />
+        <Typography variant="p">{TopBarStrings.user}</Typography>
       </div>
     </header>
   );
