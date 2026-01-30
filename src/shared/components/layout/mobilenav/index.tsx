@@ -15,7 +15,7 @@ export const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
       />
 
       <div className={`${styles.drawer} ${isOpen ? styles.drawerOpen : ""}`}>
-        <SideBar />
+        <SideBar onLinkClose={onClose} />
       </div>
     </div>
   );

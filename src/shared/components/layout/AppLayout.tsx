@@ -17,11 +17,7 @@ export const AppLayout = ({ children }: Props) => {
 
   return (
     <div className={styles.layout}>
-      {!isMdDown && <SideBar />}
-
-      {/* {isMdDown && (
-        <MobileNav isOpen={openMenu} onClose={() => setOpenMenu(false)} />
-      )} */}
+      {!isMdDown && <SideBar onLinkClose={() => setOpenMenu(false)} />}
 
       <MobileNav
         isOpen={openMenu && isMdDown}

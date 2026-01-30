@@ -3,9 +3,13 @@ import { FiLogOut } from "react-icons/fi";
 
 import { NavItems, NavStrings } from "../../../constants/strings";
 import styles from "./Sidebar.module.css";
-import logo from "../../../../assets/logo/logo1.png";
+import logo from "../../../../assets/logo/logo3.png";
 
-export const SideBar = () => {
+interface SideBarProps {
+  onLinkClose: () => void;
+}
+
+export const SideBar = ({ onLinkClose }: SideBarProps) => {
   return (
     <aside className={styles.sidebar}>
       <Link to="/dashboard" className={styles.logoContainer}>
@@ -21,6 +25,7 @@ export const SideBar = () => {
               className={({ isActive }) =>
                 isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
               }
+              onClick={onLinkClose}
             >
               <Icon className={styles.icon} />
               {label}

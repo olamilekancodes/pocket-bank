@@ -47,7 +47,7 @@
 }
 
 .logoImage {
-  width: 7.5rem;
+  width: clamp(8rem, 2vw, 10rem);
   height: auto;
   object-fit: contain;
 }
@@ -76,6 +76,7 @@
   border-radius: 0.875rem;
   font-size: clamp(0.875rem, 2vw, 1rem);
 }
+
 .navItem:hover {
   background-color: var(--color-bg-secondary);
 }
