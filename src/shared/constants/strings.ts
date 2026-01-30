@@ -16,5 +16,11 @@ export const NavItems = [
 
 export const NavStrings = {
   logoAlt: "Pocket Bank Logo",
-  buttonTitle: "Log out"
+  buttonTitle: "Log out",
+};
+
+// Topbar
+
+export const TopBarStrings = {
+  user: "Olamilekan",
 };

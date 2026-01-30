@@ -1,0 +1,11 @@
+:root {
+  /* Primary Text */
+  --color-text-primary: #1c1c1c;
+
+  /* Backgrounds */
+  --color-bg-primary: #fafafa;
+  --color-bg-secondary: #e9e9e9;
+
+  /* Borders */
+  --color-border-light: #f4f4f4;
+}

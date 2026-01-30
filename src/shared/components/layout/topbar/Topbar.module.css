@@ -1,14 +1,15 @@
 .topbar {
-  height: 60px;
-  background-color: #fafafa;
-
+  height: 4.5rem;
+  padding: 1.875rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding: 0 20px;
+  border: 2px solid red;
 }
 
-.profile {
-  font-weight: bold;
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 2px solid red;
 }

@@ -1,3 +1,5 @@
+import { useResponsive } from "../../hooks/useResponsive";
+import { isBreakpointAtLeast } from "../../utils/responsive";
 import styles from "./Layout.module.css";
 import { SideBar } from "./sidebar";
 import { TopBar } from "./topbar";
@@ -7,9 +9,12 @@ type Props = {
 };
 
 export const AppLayout = ({ children }: Props) => {
+  const breakpoint = useResponsive();
+  const isMediumScreen = isBreakpointAtLeast(breakpoint, "md");
+
   return (
     <div className={styles.layout}>
-      <SideBar />
+      {isMediumScreen ? <SideBar /> : null}
 
       <div className={styles.main}>
         <TopBar />
