@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { getTransactionHistory } from "../../../../../mock/transactionHistory";
 import { Typography } from "../../../../../shared/components/ui/Typography";
 import { DashboardStrings } from "../../../../../shared/constants/strings";
@@ -18,6 +19,12 @@ export const DashboardTable = () => {
       <Typography variant="h5">{DashboardStrings.table.title}</Typography>
 
       <TransactionTable transactions={current_data} />
+
+      <div className={styles.linkContainer}>
+        <Link to="/transactions" className={styles.seeMoreLink}>
+          See more
+        </Link>
+      </div>
     </div>
   );
 };

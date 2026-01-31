@@ -1,0 +1,7 @@
+.emptyDataContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: clamp(8rem, 3vw, 6rem) 0;
+}

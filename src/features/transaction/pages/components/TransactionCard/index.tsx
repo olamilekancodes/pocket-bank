@@ -6,6 +6,7 @@ import usePagination from "../../../../../shared/hooks/usePagination";
 import styles from "./TransactionCard.module.css";
 import { TransactionTable } from "../../../../shared/TransactionTable";
 import { useMemo, useState } from "react";
+import { EmptyDataState } from "../../../../../shared/components/ui/EmptyDataState/indext";
 
 type TransactionFilter = "all" | "credit" | "debit";
 
@@ -53,7 +54,6 @@ export const TransactionCard = () => {
   return (
     <div className={styles.transactionContainer}>
       <Typography variant="h4">{TransactionStrings.pageTitle}</Typography>
-
       <div className={styles.filterContainer}>
         <select
           id="transaction-type-filter"
@@ -63,29 +63,34 @@ export const TransactionCard = () => {
           title="Filter transactions by type"
           aria-label="Filter transactions by type"
         >
-          <option value="all">All</option>
-          <option value="credit">Credit</option>
-          <option value="debit">Debit</option>
+          <option value="all">{TransactionStrings.filter.all}</option>
+          <option value="credit">{TransactionStrings.filter.credit}</option>
+          <option value="debit">{TransactionStrings.filter.debit}</option>
         </select>
 
         <input
           type="text"
-          placeholder="Search transactions..."
+          placeholder={TransactionStrings.searchPlaceHolder}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className={styles.searchInput}
         />
       </div>
 
-      <TransactionTable transactions={current_data} />
-
-      <CustomPagination
-        current_page={current_page}
-        total_pages={total_pages}
-        items_per_page={items_per_page}
-        setCurrentPage={setCurrentPage}
-        setItemPerPage={setItemPerPage}
-      />
+      {filteredData && filteredData.length > 0 ? (
+        <>
+          <TransactionTable transactions={current_data} />
+          <CustomPagination
+            current_page={current_page}
+            total_pages={total_pages}
+            items_per_page={items_per_page}
+            setCurrentPage={setCurrentPage}
+            setItemPerPage={setItemPerPage}
+          />
+        </>
+      ) : (
+        <EmptyDataState />
+      )}
     </div>
   );
 };

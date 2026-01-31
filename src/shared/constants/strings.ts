@@ -67,4 +67,10 @@ export const TableStrings = {
 
 export const TransactionStrings = {
   pageTitle: "All Transactions",
+  filter: {
+    all: "All",
+    credit: "Credit",
+    debit: "Debit",
+  },
+  searchPlaceHolder: "Search transaction...",
 };

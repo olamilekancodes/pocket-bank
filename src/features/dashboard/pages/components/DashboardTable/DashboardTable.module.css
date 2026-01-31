@@ -1,3 +1,25 @@
 .tableContainer {
   margin: clamp(4rem, 1.8vw, 3rem);
 }
+
+.linkContainer {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+.seeMoreLink {
+  padding: 8px 1rem;
+  margin: clamp(3rem, 2vw, 2rem) 0;
+  border: 1px solid var(--color-border-darker);
+  border-radius: 25rem;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  border-color: var(--color-text-primary);
+}
+
+.seeMoreLink:hover {
+  background-color: var(--color-bg-secondary);
+  border-color: #ccc;
+}
