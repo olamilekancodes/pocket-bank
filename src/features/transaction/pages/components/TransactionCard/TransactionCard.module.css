@@ -1,3 +1,62 @@
 .transactionContainer {
   padding: clamp(4rem, 1.8vw, 3rem);
 }
+
+.filterContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3rem 0;
+}
+
+@media (max-width: 768px) {
+  .filterContainer {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.tableActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 1rem;
+  border: 1px solid var(--color-border-darker);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+  max-width: 25rem;
+}
+
+.searchInput:focus {
+  border-color: var(--color-text-primary);
+}
+
+.filterDropdown {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border-darker);
+  background: white;
+  max-width: 12.5rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.filterDropdown:focus {
+  border-color: var(--color-text-primary);
+  outline: none;
+}
+
+.filterDropdown:focus-visible {
+  outline: none;
+  border-color: var(--color-text-primary);
+}
