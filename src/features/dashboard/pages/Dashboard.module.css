@@ -1,0 +1,19 @@
+.dashboardLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 100%;
+}
+
+.stickyHeader {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--color-bg-primary, #ffffff);
+  padding-bottom: 10px;
+}
+
+.scrollContent {
+  position: relative;
+  z-index: 1;
+}

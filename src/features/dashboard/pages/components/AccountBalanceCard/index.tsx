@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+import { getTransactionHistory } from "../../../../../mock/transactionHistory";
 import {
   IconButton,
   type ButtonVariant,
@@ -5,8 +7,23 @@ import {
 import { Typography } from "../../../../../shared/components/ui/Typography";
 import { DashboardStrings } from "../../../../../shared/constants/strings";
 import styles from "./AccountBalanceCard.module.css";
+import { formatCurrency } from "../../../../../shared/components/utils/currencyFormat";
 
 export const AccountBalanceCard = () => {
+  const data = getTransactionHistory();
+
+  const totalBalance = useMemo(() => {
+    if (!data || data.length === 0) return 0;
+
+    return data.reduce((acc, curr) => {
+      return curr.status === "successful" ? acc + curr.amount : acc;
+    }, 0);
+  }, [data]);
+
+  const currency = data[0]?.currency;
+
+  console.log("currency: ", totalBalance);
+
   const handleTransfer = () => {};
   return (
     <div className={styles.accountBalanceBackground}>
@@ -19,8 +36,7 @@ export const AccountBalanceCard = () => {
             </Typography>
           </div>
           <Typography variant="h3">
-            {DashboardStrings.accountBalance.currency}{" "}
-            {DashboardStrings.accountBalance.currentBalance}
+            {formatCurrency(totalBalance, currency)}
           </Typography>
           <Typography
             variant="h6"

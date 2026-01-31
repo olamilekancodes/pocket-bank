@@ -1,11 +1,16 @@
 import { AccountBalanceCard } from "./components/AccountBalanceCard";
 import { DashboardTable } from "./components/DashboardTable";
+import styles from "./Dashboard.module.css";
 
 export const DashboardPage = () => {
   return (
-    <>
-      <AccountBalanceCard />
-      <DashboardTable />
-    </>
+    <div className={styles.dashboardLayout}>
+      <div className={styles.stickyHeader}>
+        <AccountBalanceCard />
+      </div>
+      <div className={styles.scrollContent}>
+        <DashboardTable />
+      </div>
+    </div>
   );
 };
