@@ -1,5 +1,5 @@
 .tableContainer {
-  margin: clamp(4rem, 1.8vw, 3rem);
+  margin: clamp(4rem, 2vw, 1.5rem);
 }
 
 .linkContainer {
