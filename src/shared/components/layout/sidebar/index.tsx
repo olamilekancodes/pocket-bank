@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 
 import { NavItems, NavStrings } from "../../../constants/strings";
-import styles from "./Sidebar.module.css";
+import styles from "./SideBar.module.css";
 import logo from "../../../../assets/logo/logo3.png";
 
 interface SideBarProps {

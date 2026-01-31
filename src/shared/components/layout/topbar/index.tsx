@@ -5,7 +5,7 @@ import { IoMdMenu } from "react-icons/io";
 import { TopBarStrings } from "../../../constants/strings";
 import { Avatar } from "../../ui/Avatar";
 import { Typography } from "../../ui/Typography";
-import styles from "./Topbar.module.css";
+import styles from "./TopBar.module.css";
 import { useResponsive } from "../../../hooks/useResponsive";
 
 interface TopBarProps {
