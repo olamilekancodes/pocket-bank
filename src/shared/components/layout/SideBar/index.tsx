@@ -1,12 +1,20 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 
 import { NavItems, NavStrings } from "../../../constants/strings";
 import styles from "./SideBar.module.css";
 import logo from "../../../../assets/logo/logo1.png";
 import type { SideBarProps } from "../../../type";
+import { useAuth } from "../../../../auth/hooks/useAuth";
 
 export const SideBar = ({ onLinkClose }: SideBarProps) => {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login", { replace: true });
+  };
   return (
     <aside className={styles.sidebar}>
       <Link to="/dashboard" className={styles.logoContainer}>
@@ -29,7 +37,10 @@ export const SideBar = ({ onLinkClose }: SideBarProps) => {
             </NavLink>
           ))}
         </nav>
-        <button className={`${styles.navItem} ${styles.navBtn}`}>
+        <button
+          className={`${styles.navItem} ${styles.navBtn}`}
+          onClick={handleLogout}
+        >
           <FiLogOut className={styles.icon} />
           {NavStrings.buttonTitle}
         </button>

@@ -81,3 +81,24 @@ export const TransactionStrings = {
 export const ComingSoonStrings = {
   title: "Coming Soon",
 };
+
+// Login
+
+export const LoginStrings = {
+  welcomeNote: "Welcome Back!",
+  email: {
+    validation1: "Please enter a valid email address",
+    validation2: "Email is required",
+    fieldName: "Email Address",
+  },
+  password: {
+    validation1: "Please enter a valid email address",
+    validation2: "Password is required",
+    fieldName: "Password",
+  },
+  buttonTitle: {
+    title1: "Submitting",
+    title2: "Login to Dashboard",
+  },
+  errorMessage: "The email or password you entered is incorrect",
+};
