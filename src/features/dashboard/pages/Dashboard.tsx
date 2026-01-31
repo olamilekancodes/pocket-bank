@@ -1,15 +1,15 @@
-import { AccountBalanceCard } from "./components/AccountBalanceCard";
-import { DashboardTable } from "./components/DashboardTable";
+import { AccountBalanceContainer } from "../containers/AccountBalanceContainer";
+import { DashboardTableContainer } from "../containers/DashboardTableContainer";
 import styles from "./Dashboard.module.css";
 
 export const DashboardPage = () => {
   return (
     <div className={styles.dashboardLayout}>
       <div className={styles.stickyHeader}>
-        <AccountBalanceCard />
+        <AccountBalanceContainer />
       </div>
       <div className={styles.scrollContent}>
-        <DashboardTable />
+        <DashboardTableContainer />
       </div>
     </div>
   );

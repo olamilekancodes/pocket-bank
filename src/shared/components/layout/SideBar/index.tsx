@@ -3,7 +3,7 @@ import { FiLogOut } from "react-icons/fi";
 
 import { NavItems, NavStrings } from "../../../constants/strings";
 import styles from "./SideBar.module.css";
-import logo from "../../../../assets/logo/logo3.png";
+import logo from "../../../../assets/logo/logo1.png";
 
 interface SideBarProps {
   onLinkClose: () => void;

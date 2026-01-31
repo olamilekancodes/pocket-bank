@@ -1,5 +1,5 @@
-import { TransactionCard } from "./components/TransactionCard";
+import { TransactionContainer } from "../TransactionContainer";
 
 export const Transaction = () => {
-  return <TransactionCard />;
+  return <TransactionContainer />;
 };

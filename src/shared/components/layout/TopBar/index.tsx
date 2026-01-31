@@ -7,6 +7,7 @@ import { Avatar } from "../../ui/Avatar";
 import { Typography } from "../../ui/Typography";
 import styles from "./TopBar.module.css";
 import { useResponsive } from "../../../hooks/useResponsive";
+import logo from "../../../../assets/logo/logo2.png";
 
 interface TopBarProps {
   action: () => void;
@@ -16,7 +17,12 @@ export const TopBar = ({ action }: TopBarProps) => {
   const { isMdDown } = useResponsive();
   return (
     <header className={styles.topbar}>
-      {isMdDown && <IoMdMenu className={styles.menuIcon} onClick={action} />}
+      {isMdDown && (
+        <div className={styles.iconContainer}>
+          <IoMdMenu className={styles.menuIcon} onClick={action} />
+          <img src={logo} alt={TopBarStrings.logoAlt} className={styles.logo} />
+        </div>
+      )}
 
       <IoSearch className={styles.icon} />
 

@@ -26,6 +26,7 @@ export const NavStrings = {
 
 export const TopBarStrings = {
   user: "Olamilekan",
+  logoAlt: "Pocket Bank logo"
 };
 
 // Dashboard

@@ -6,6 +6,16 @@
   border-bottom: 1px solid var(--color-border-light);
 }
 
+.iconContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo {
+  width: 25px;
+}
+
 .menuIcon {
   font-size: clamp(1.5rem, 2vw, 2rem);
 }

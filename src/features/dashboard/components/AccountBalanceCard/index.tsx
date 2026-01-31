@@ -1,27 +1,23 @@
-import { useMemo } from "react";
-import { getTransactionHistory } from "../../../../../mock/transactionHistory";
 import {
   IconButton,
   type ButtonVariant,
-} from "../../../../../shared/components/ui/Buttons/IconButton";
-import { Typography } from "../../../../../shared/components/ui/Typography";
-import { DashboardStrings } from "../../../../../shared/constants/strings";
+} from "../../../../shared/components/ui/Buttons/IconButton";
+import { Typography } from "../../../../shared/components/ui/Typography";
+import { formatCurrency } from "../../../../shared/components/utils/currencyFormat";
+import { DashboardStrings } from "../../../../shared/constants/strings";
 import styles from "./AccountBalanceCard.module.css";
-import { formatCurrency } from "../../../../../shared/components/utils/currencyFormat";
 
-export const AccountBalanceCard = () => {
-  const data = getTransactionHistory();
+interface Props {
+  balance: number;
+  currency: string;
+  onTransfer: () => void;
+}
 
-  const totalBalance = useMemo(() => {
-    if (!data || data.length === 0) return 0;
-
-    return data.reduce((acc, curr) => {
-      return curr.status === "successful" ? acc + curr.amount : acc;
-    }, 0);
-  }, [data]);
-
-  const currency = data[0]?.currency;
-  const handleTransfer = () => {};
+export const AccountBalanceCard = ({
+  balance,
+  currency,
+  onTransfer,
+}: Props) => {
   return (
     <div className={styles.accountBalanceBackground}>
       <div className={styles.accountBalanceContainer}>
@@ -33,7 +29,7 @@ export const AccountBalanceCard = () => {
             </Typography>
           </div>
           <Typography variant="h3">
-            {formatCurrency(totalBalance, currency)}
+            {formatCurrency(balance, currency)}
           </Typography>
           <Typography
             variant="h6"
@@ -50,7 +46,7 @@ export const AccountBalanceCard = () => {
               title={btn.title}
               icon={<btn.icon />}
               variant={btn.variant as ButtonVariant}
-              action={btn.title === "Transfer" ? handleTransfer : undefined}
+              action={btn.title === "Transfer" ? onTransfer : undefined}
             />
           ))}
         </div>
