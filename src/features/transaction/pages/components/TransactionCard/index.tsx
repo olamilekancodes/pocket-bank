@@ -3,10 +3,8 @@ import { CustomPagination } from "../../../../../shared/components/ui/Pagination
 import StyledTd from "../../../../../shared/components/ui/StyledTableCell";
 import SimpleTableWrapper from "../../../../../shared/components/ui/TableWrapper";
 import { Typography } from "../../../../../shared/components/ui/Typography";
-import {
-  getComparator,
-  stableSort,
-} from "../../../../../shared/components/utils/sort";
+import { formatDate } from "../../../../../shared/components/utils/dateFormat";
+import { TransactionStrings } from "../../../../../shared/constants/strings";
 import usePagination from "../../../../../shared/hooks/usePagination";
 import styles from "./TransactionCard.module.css";
 
@@ -44,7 +42,7 @@ export const TransactionCard = () => {
 
   return (
     <div className={styles.transactionContainer}>
-      <Typography variant="h4">Trasactions</Typography>
+      <Typography variant="h4">{TransactionStrings.pageTitle}</Typography>
 
       <SimpleTableWrapper
         handleRequestSort={handleRequestSort}
@@ -55,7 +53,12 @@ export const TransactionCard = () => {
           const { id, date, description, amount, currency, status } = data;
           return (
             <tr key={id}>
-              <StyledTd>{description}</StyledTd>
+              <StyledTd>
+                <div className={styles.descriptionContainer}>
+                  <Typography variant="p">{description}</Typography>
+                  <Typography variant="p">{formatDate(date)}</Typography>
+                </div>
+              </StyledTd>
               <StyledTd>{amount}</StyledTd>
               <StyledTd>{status}</StyledTd>
             </tr>

@@ -17,15 +17,24 @@
   vertical-align: middle;
   font-size: 1rem;
   font-weight: 600;
+  cursor: default;
+  min-width: 13rem;
 }
 
 .thCell.isSorted {
-  background: red;
-  color: black;
+  color: var(--color-bg-secondary);
 }
 
 .thLabel {
   display: inline-block;
+}
+
+.sortable {
+  cursor: pointer;
+}
+
+.sortable:hover {
+  background-color: var(--color-bg-secondary);
 }
 
 .simpleTable td {

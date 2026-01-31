@@ -33,11 +33,8 @@ function SimpleTableWrapper<T>({
                     scope="col"
                     className={`${styles.thCell} ${
                       isSorted ? styles.isSorted : ""
-                    }`}
+                    } ${handleRequestSort ? styles.sortable : ""}`}
                     onClick={() => handleRequestSort?.(cell.id as keyof T)}
-                    style={{
-                      cursor: handleRequestSort ? "pointer" : "default",
-                    }}
                   >
                     <span className={styles.thLabel}>{cell.label}</span>
                   </th>

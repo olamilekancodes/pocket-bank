@@ -2,6 +2,7 @@ import React from "react";
 import { MdOutlineArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 
 import styles from "./Pagination.module.css";
+import { useResponsive } from "../../../hooks/useResponsive";
 
 interface CustomPaginationProps {
   current_page: number;
@@ -18,36 +19,12 @@ export const CustomPagination = ({
   setItemPerPage,
   setCurrentPage,
 }: CustomPaginationProps) => {
+  const { isMdUp } = useResponsive();
+
   const handleItemChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setItemPerPage(Number(e.target.value));
     setCurrentPage(1);
   };
-
-  const getPageNumbers = () => {
-    const pages: (number | string)[] = [];
-    if (total_pages <= 5) {
-      for (let i = 1; i <= total_pages; i++) pages.push(i);
-    } else {
-      if (current_page <= 3) {
-        pages.push(1, 2, 3, "...", total_pages - 1, total_pages);
-      } else if (current_page >= total_pages - 2) {
-        pages.push(1, 2, "...", total_pages - 2, total_pages - 1, total_pages);
-      } else {
-        pages.push(
-          1,
-          "...",
-          current_page - 1,
-          current_page,
-          current_page + 1,
-          "...",
-          total_pages,
-        );
-      }
-    }
-    return pages;
-  };
-
-  const pages = getPageNumbers();
 
   return (
     <div className={styles.paginationContainer}>
@@ -80,23 +57,11 @@ export const CustomPagination = ({
           <MdOutlineArrowBackIos size={14} />
         </button>
 
-        {pages.map((page, idx) =>
-          typeof page === "number" ? (
-            <button
-              key={idx}
-              className={`${styles.pageBtn} ${current_page === page ? styles.active : ""}`}
-              onClick={() => setCurrentPage(page)}
-              aria-label={`Go to page ${page}`}
-              aria-current={current_page === page ? "page" : undefined}
-            >
-              {page}
-            </button>
-          ) : (
-            <span key={idx} className={styles.ellipsis} aria-hidden="true">
-              {page}
-            </span>
-          ),
-        )}
+        <div className={styles.pageIndicator}>
+          <span className={styles.current}>{current_page}</span>
+          <span className={styles.of}>of</span>
+          <span className={styles.total}>{total_pages}</span>
+        </div>
 
         <button
           onClick={() =>

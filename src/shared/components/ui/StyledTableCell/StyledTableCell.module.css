@@ -1,9 +1,7 @@
 .tableCell {
   background: none;
   border: none;
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: inherit;
-  padding: 10px 6px;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  padding: 0.75rem, 6px;
   vertical-align: middle;
 }

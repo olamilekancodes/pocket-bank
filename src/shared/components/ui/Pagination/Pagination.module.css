@@ -1,39 +1,35 @@
 .paginationContainer {
   display: flex;
   justify-content: space-between;
-  margin: 1.5rem 0 5rem;
+  margin: 2rem 0 5rem;
   align-items: center;
 }
 
 .paginationInfo {
   display: flex;
   align-items: center;
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 1.1vw, 0.875rem);
   gap: 0.5rem;
 }
 
 .paginationText {
   font-weight: 400;
-  color: #666;
-  display: none;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .paginationText {
-    display: flex;
+    display: none;
   }
 }
 
 .itemsDropdown {
   margin: 0 3px;
   padding: 6px 10px;
-  border: none;
+  border: 1px solid var(--color-text-primary);
   border-radius: 6px;
-  font-size: 0.875rem;
-  background-color: #f4f4f4;
+  font-size: clamp(0.75rem, 1.1vw, 0.875rem);
   cursor: pointer;
-  color: #69a080;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .itemsDropdown:focus {
@@ -43,24 +39,22 @@
 .paginationControls {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: clamp(6px, 1vw, 10px);
 }
 
 .navBtn {
   border: none;
-  background-color: #f4f4f4;
   cursor: pointer;
-  padding: 0.4rem;
-  border-radius: 6px;
-  color: #69a080;
+  padding: clamp(3px, 1vw, 6px);
+  color: var(--color-text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s ease;
+  background-color: transparent;
 }
 
 .navBtn:hover:not(:disabled) {
-  background-color: #e2f0e7;
+  color: var(--color-secondary-primary);
 }
 
 .navBtn:disabled {
@@ -68,26 +62,7 @@
   cursor: default;
 }
 
-.pageBtn {
-  color: #999;
-  font-weight: 500;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 0 4px;
-  transition: color 0.2s ease;
-}
-
-.pageBtn:hover {
-  color: #333;
-}
-
-.pageBtn.active {
-  color: #333;
-  text-decoration: underline;
-}
-
-.ellipsis {
-  color: #999;
-  cursor: default;
+.pageIndicator {
+  display: flex;
+  gap: 5px;
 }

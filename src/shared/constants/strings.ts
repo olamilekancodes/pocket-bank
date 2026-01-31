@@ -44,3 +44,9 @@ export const DashboardStrings = {
     { title: "Deposit", icon: PiPlusBold },
   ],
 };
+
+// Transaction
+
+export const TransactionStrings = {
+  pageTitle: "All Transactions",
+};
