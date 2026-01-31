@@ -9,6 +9,7 @@ import {
   formatCurrencyInput,
   stripCommas,
 } from "../../../../shared/components/utils/formatter";
+import { TransferFormStrings } from "../../../../shared/constants/strings";
 
 export const TransferForm = ({
   availableBalance,
@@ -22,21 +23,23 @@ export const TransferForm = ({
 
   const TransferSchema = Yup.object().shape({
     account_number: Yup.number()
-      .typeError("Account number must be a number")
-      .required("Account number is required"),
+      .typeError(`${TransferFormStrings.accountNumber.validation1}`)
+      .required(`${TransferFormStrings.accountNumber.validation2}`),
     amount: Yup.number()
-      .typeError("Amount must be a number")
-      .required("Amount is required")
-      .moreThan(0, "Amount must be greater than 0")
-      .max(availableBalance, "Insufficient balance"),
-    bank_name: Yup.string().required("Bank Name is required"),
+      .typeError(`${TransferFormStrings.amount.validation1}`)
+      .required(`${TransferFormStrings.amount.validation2}`)
+      .moreThan(0, `${TransferFormStrings.amount.validation3}`)
+      .max(availableBalance, `${TransferFormStrings.amount.validation4}`),
+    bank_name: Yup.string().required(
+      `${TransferFormStrings.bankName.validation1}`,
+    ),
   });
 
   const handleSubmit = (
     _values: TransferFormValues,
     { resetForm, setSubmitting }: FormikHelpers<TransferFormValues>,
   ) => {
-    toast.success("Transfer successful!");
+    toast.success(`${TransferFormStrings.notificationMessage}`);
     resetForm();
     setSubmitting(false);
     closeForm();
@@ -53,7 +56,7 @@ export const TransferForm = ({
           <Form className={styles.form}>
             <div className={styles.fieldGroup}>
               <label htmlFor="account_number" className={styles.label}>
-                Account Number
+                {TransferFormStrings.accountNumber.fieldName}
               </label>
               <Field
                 id="account_number"
@@ -76,7 +79,7 @@ export const TransferForm = ({
 
             <div className={styles.fieldGroup}>
               <label htmlFor="bank_name" className={styles.label}>
-                Bank Name
+                {TransferFormStrings.bankName.fieldName}
               </label>
               <Field
                 id="bank_name"
@@ -95,7 +98,7 @@ export const TransferForm = ({
 
             <div className={styles.fieldGroup}>
               <label htmlFor="amount" className={styles.label}>
-                Amount (NGN)
+                {TransferFormStrings.amount.fieldName}
               </label>
               <input
                 id="amount"
@@ -124,7 +127,9 @@ export const TransferForm = ({
               disabled={isSubmitting}
               className={styles.submitBtn}
             >
-              {isSubmitting ? "Processing..." : "Transfer"}
+              {isSubmitting
+                ? `${TransferFormStrings.buttonTitle.title1}`
+                : `${TransferFormStrings.buttonTitle.title2}`}
             </button>
           </Form>
         )}

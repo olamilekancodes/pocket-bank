@@ -102,3 +102,35 @@ export const LoginStrings = {
   },
   errorMessage: "The email or password you entered is incorrect",
 };
+
+// Transform
+
+export const TransferFormStrings = {
+  accountNumber: {
+    validation1: "Account number must be a number",
+    validation2: "Account number is required",
+    fieldName: "Account Number",
+  },
+  amount: {
+    validation1: "Amount must be a number",
+    validation2: "Amount is required",
+    validation3: "mount must be greater than 0",
+    validation4: "Insufficient balance",
+    fieldName: "Amount",
+  },
+  bankName: {
+    validation1: "Bank Name is required",
+    fieldName: "Bank Name",
+  },
+  notificationMessage: "Transfer successful!",
+  buttonTitle: {
+    title1: "Processing...",
+    title2: "Transfer",
+  },
+};
+
+// Empty data state
+
+export const EmptyStateStrings = {
+  title: "No data available",
+};
