@@ -1,10 +1,6 @@
+import type { MobileNavProps } from "../../../type";
 import { SideBar } from "../SideBar";
 import styles from "./MobileNav.module.css";
-
-interface MobileNavProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
 
 export const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
   return (

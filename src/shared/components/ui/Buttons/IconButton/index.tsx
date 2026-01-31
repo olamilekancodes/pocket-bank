@@ -1,14 +1,5 @@
-import type { ButtonHTMLAttributes } from "react";
 import styles from "./IconButton.module.css";
-
-export type ButtonVariant = "primary" | "secondary";
-
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  icon?: React.ReactNode;
-  title: string;
-  variant?: ButtonVariant;
-  action?: () => void;
-}
+import type { ButtonProps } from "../../../../type";
 
 export const IconButton = ({
   icon,

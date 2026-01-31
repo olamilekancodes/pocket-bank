@@ -1,11 +1,6 @@
 import React from "react";
 import styles from "./Avatar.module.css";
-
-interface AvatarProps {
-  src?: string;
-  name: string;
-  size?: "sm" | "md" | "lg";
-}
+import type { AvatarProps } from "../../../type";
 
 export const Avatar: React.FC<AvatarProps> = ({ src, name, size = "md" }) => {
   const getInitial = (fullName: string) => {

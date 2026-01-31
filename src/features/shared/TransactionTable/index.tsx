@@ -11,19 +11,8 @@ import { formatCurrency } from "../../../shared/components/utils/currencyFormat"
 import { StatusChip } from "../../../shared/components/ui/StatusChip";
 import { formatDate } from "../../../shared/components/utils/dateFormat";
 import { TableStrings } from "../../../shared/constants/strings";
-
-interface Transaction {
-  id: string;
-  date: string;
-  description: string;
-  amount: number;
-  currency: string;
-  status: string;
-}
-
-interface TransactionTableProps<T> {
-  transactions: T[];
-}
+import type { Transaction } from "../../../mock/type";
+import type { TransactionTableProps } from "../../../shared/type";
 
 export const TransactionTable = <T extends Transaction>({
   transactions,

@@ -3,14 +3,7 @@ import { MdOutlineArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 
 import styles from "./Pagination.module.css";
 import { TableStrings } from "../../../constants/strings";
-
-interface CustomPaginationProps {
-  current_page: number;
-  total_pages: number;
-  items_per_page: number;
-  setItemPerPage: (num: number) => void;
-  setCurrentPage: (page: number) => void;
-}
+import type { CustomPaginationProps } from "../../../type";
 
 export const CustomPagination = ({
   current_page,

@@ -1,23 +1,16 @@
-import {
-  IconButton,
-  type ButtonVariant,
-} from "../../../../shared/components/ui/Buttons/IconButton";
+import { IconButton } from "../../../../shared/components/ui/Buttons/IconButton";
 import { Typography } from "../../../../shared/components/ui/Typography";
 import { formatCurrency } from "../../../../shared/components/utils/currencyFormat";
 import { DashboardStrings } from "../../../../shared/constants/strings";
+import type { ButtonVariant } from "../../../../shared/type";
+import type { AccountBalanceCardProps } from "../../type";
 import styles from "./AccountBalanceCard.module.css";
-
-interface Props {
-  balance: number;
-  currency: string;
-  onTransfer: () => void;
-}
 
 export const AccountBalanceCard = ({
   balance,
   currency,
   onTransfer,
-}: Props) => {
+}: AccountBalanceCardProps) => {
   return (
     <div className={styles.accountBalanceBackground}>
       <div className={styles.accountBalanceContainer}>

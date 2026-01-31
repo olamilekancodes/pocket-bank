@@ -1,15 +1,5 @@
-import React from "react";
 import styles from "./TableWrapper.module.css";
-
-interface HeadCell {
-  id: string;
-  label: string;
-}
-
-interface SimpleTableWrapperProps {
-  headCells?: HeadCell[];
-  children: React.ReactNode;
-}
+import type { SimpleTableWrapperProps } from "../../../type";
 
 const SimpleTableWrapper = ({
   headCells = [],

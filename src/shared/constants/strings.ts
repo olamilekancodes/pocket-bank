@@ -26,7 +26,7 @@ export const NavStrings = {
 
 export const TopBarStrings = {
   user: "Olamilekan",
-  logoAlt: "Pocket Bank logo"
+  logoAlt: "Pocket Bank logo",
 };
 
 // Dashboard
@@ -74,4 +74,10 @@ export const TransactionStrings = {
     debit: "Debit",
   },
   searchPlaceHolder: "Search transaction...",
+};
+
+// Coming Soon
+
+export const ComingSoonStrings = {
+  title: "Coming Soon",
 };

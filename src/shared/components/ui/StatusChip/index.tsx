@@ -1,8 +1,5 @@
+import type { StatusChipProps } from "../../../type";
 import styles from "./StatusChip.module.css";
-
-interface StatusChipProps {
-  status: string;
-}
 
 export const StatusChip = ({ status }: StatusChipProps) => {
   return (

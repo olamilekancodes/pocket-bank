@@ -4,10 +4,7 @@ import { FiLogOut } from "react-icons/fi";
 import { NavItems, NavStrings } from "../../../constants/strings";
 import styles from "./SideBar.module.css";
 import logo from "../../../../assets/logo/logo1.png";
-
-interface SideBarProps {
-  onLinkClose: () => void;
-}
+import type { SideBarProps } from "../../../type";
 
 export const SideBar = ({ onLinkClose }: SideBarProps) => {
   return (

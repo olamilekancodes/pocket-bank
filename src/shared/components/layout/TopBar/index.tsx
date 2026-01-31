@@ -8,10 +8,7 @@ import { Typography } from "../../ui/Typography";
 import styles from "./TopBar.module.css";
 import { useResponsive } from "../../../hooks/useResponsive";
 import logo from "../../../../assets/logo/logo2.png";
-
-interface TopBarProps {
-  action: () => void;
-}
+import type { TopBarProps } from "../../../type";
 
 export const TopBar = ({ action }: TopBarProps) => {
   const { isMdDown } = useResponsive();

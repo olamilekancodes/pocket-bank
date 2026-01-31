@@ -1,10 +1,5 @@
 import { useState, useMemo } from "react";
-
-interface PaginationProps<T> {
-  data: T[];
-  order_control: keyof T;
-  initial_items_per_page?: number;
-}
+import type { PaginationProps } from "../type";
 
 const isDateString = (val: unknown): val is string => {
   return typeof val === "string" && !isNaN(Date.parse(val));

@@ -1,0 +1,134 @@
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import type { FormikHelpers } from "formik";
+import * as Yup from "yup";
+import { toast } from "react-hot-toast";
+
+import styles from "./TransferForm.module.css";
+import type { TransferFormProps, TransferFormValues } from "../../type";
+import {
+  formatCurrencyInput,
+  stripCommas,
+} from "../../../../shared/components/utils/formatter";
+
+export const TransferForm = ({
+  availableBalance,
+  closeForm,
+}: Omit<TransferFormProps, "onSubmit">) => {
+  const initialValues: TransferFormValues = {
+    account_number: "",
+    amount: "",
+    bank_name: "",
+  };
+
+  const TransferSchema = Yup.object().shape({
+    account_number: Yup.number()
+      .typeError("Account number must be a number")
+      .required("Account number is required"),
+    amount: Yup.number()
+      .typeError("Amount must be a number")
+      .required("Amount is required")
+      .moreThan(0, "Amount must be greater than 0")
+      .max(availableBalance, "Insufficient balance"),
+    bank_name: Yup.string().required("Bank Name is required"),
+  });
+
+  const handleSubmit = (
+    _values: TransferFormValues,
+    { resetForm, setSubmitting }: FormikHelpers<TransferFormValues>,
+  ) => {
+    toast.success("Transfer successful!");
+    resetForm();
+    setSubmitting(false);
+    closeForm();
+  };
+
+  return (
+    <div className={styles.formWrapper}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={TransferSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ isSubmitting, errors, touched, setFieldValue, values }) => (
+          <Form className={styles.form}>
+            <div className={styles.fieldGroup}>
+              <label htmlFor="account_number" className={styles.label}>
+                Account Number
+              </label>
+              <Field
+                id="account_number"
+                name="account_number"
+                inputMode="numeric"
+                maxLength={10}
+                placeholder="0123456789"
+                className={`${styles.input} ${
+                  errors.account_number && touched.account_number
+                    ? styles.inputError
+                    : ""
+                }`}
+              />
+              <ErrorMessage
+                name="account_number"
+                component="div"
+                className={styles.error}
+              />
+            </div>
+
+            <div className={styles.fieldGroup}>
+              <label htmlFor="bank_name" className={styles.label}>
+                Bank Name
+              </label>
+              <Field
+                id="bank_name"
+                name="bank_name"
+                placeholder="Sparkle"
+                className={`${styles.input} ${
+                  errors.bank_name && touched.bank_name ? styles.inputError : ""
+                }`}
+              />
+              <ErrorMessage
+                name="bank_name"
+                component="div"
+                className={styles.error}
+              />
+            </div>
+
+            <div className={styles.fieldGroup}>
+              <label htmlFor="amount" className={styles.label}>
+                Amount (NGN)
+              </label>
+              <input
+                id="amount"
+                name="amount"
+                type="text"
+                inputMode="decimal"
+                className={styles.input}
+                value={formatCurrencyInput(values.amount.toString())}
+                onChange={(e) => {
+                  const rawValue = stripCommas(e.target.value);
+
+                  if (/^\d*\.?\d*$/.test(rawValue)) {
+                    setFieldValue("amount", rawValue);
+                  }
+                }}
+              />
+              <ErrorMessage
+                name="amount"
+                component="div"
+                className={styles.error}
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className={styles.submitBtn}
+            >
+              {isSubmitting ? "Processing..." : "Transfer"}
+            </button>
+          </Form>
+        )}
+      </Formik>
+    </div>
+  );
+};

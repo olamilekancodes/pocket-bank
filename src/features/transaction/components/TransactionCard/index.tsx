@@ -4,21 +4,7 @@ import { TransactionStrings } from "../../../../shared/constants/strings";
 import { TransactionTable } from "../../../shared/TransactionTable";
 import { EmptyDataState } from "../../../../shared/components/ui/EmptyDataState";
 import styles from "./TransactionCard.module.css";
-import type { Transaction } from "../../../../mock/type";
-
-interface TransactionCardProps {
-  transactions: Transaction[];
-  searchQuery: string;
-  filter: string;
-  currentPage: number;
-  totalPages: number;
-  itemsPerPage: number;
-  hasData: boolean;
-  onSearchChange: (value: string) => void;
-  onFilterChange: (value: string) => void;
-  onPageChange: (page: number) => void;
-  onItemsPerPageChange: (items: number) => void;
-}
+import type { TransactionCardProps } from "../../type";
 
 export const TransactionCard = ({
   transactions,

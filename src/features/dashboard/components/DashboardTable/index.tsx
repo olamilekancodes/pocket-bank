@@ -4,11 +4,7 @@ import { Typography } from "../../../../shared/components/ui/Typography";
 import { DashboardStrings } from "../../../../shared/constants/strings";
 import { TransactionTable } from "../../../shared/TransactionTable";
 import styles from "./DashboardTable.module.css";
-import type { Transaction } from "../../../../mock/type";
-
-interface DashboardTableProps {
-  transactions: Transaction[];
-}
+import type { DashboardTableProps } from "../../type";
 
 export const DashboardTable = ({ transactions }: DashboardTableProps) => {
   return (

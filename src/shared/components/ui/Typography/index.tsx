@@ -1,12 +1,5 @@
-import React from "react";
+import type { TypographyProps } from "../../../type";
 import styles from "./Typography.module.css";
-
-type Variant = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p";
-
-interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
-  variant: Variant;
-  children: React.ReactNode;
-}
 
 export const Typography = ({
   variant,

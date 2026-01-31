@@ -1,9 +1,6 @@
 import React from "react";
 import styles from "./StyledTableCell.module.css";
-
-interface StyledTdProps extends React.TdHTMLAttributes<HTMLTableCellElement> {
-  children: React.ReactNode;
-}
+import type { StyledTdProps } from "../../../type";
 
 const StyledTd: React.FC<StyledTdProps> = ({ children, ...props }) => {
   return (
