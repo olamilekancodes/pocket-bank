@@ -1,6 +1,6 @@
-import { IoNotificationsOutline } from "react-icons/io5";
 import { IoSearch } from "react-icons/io5";
 import { IoMdMenu } from "react-icons/io";
+import { FaRegBell } from "react-icons/fa6";
 
 import { TopBarStrings } from "../../../constants/strings";
 import { Avatar } from "../../ui/Avatar";
@@ -9,9 +9,14 @@ import styles from "./TopBar.module.css";
 import { useResponsive } from "../../../hooks/useResponsive";
 import logo from "../../../../assets/logo/logo2.png";
 import type { TopBarProps } from "../../../type";
+import { useAuth } from "../../../../auth/hooks/useAuth";
+import { formatNameShort } from "../../utils/formatName";
 
 export const TopBar = ({ action }: TopBarProps) => {
   const { isMdDown } = useResponsive();
+
+  const { user } = useAuth();
+
   return (
     <header className={styles.topbar}>
       {isMdDown && (
@@ -21,12 +26,11 @@ export const TopBar = ({ action }: TopBarProps) => {
         </div>
       )}
 
-      <IoSearch className={styles.icon} />
-
       <div className={styles.container}>
-        <IoNotificationsOutline className={styles.icon} />
-        <Avatar name={TopBarStrings.user} size="md" />
-        <Typography variant="h6">{TopBarStrings.user}</Typography>
+        <IoSearch className={styles.icon} />
+        <FaRegBell className={styles.icon} />
+        {user?.name && <Avatar name={user?.name} size="md" />}
+        <Typography variant="h6">{formatNameShort(user?.name)}</Typography>
       </div>
     </header>
   );
