@@ -7,9 +7,7 @@ import { DashboardStrings } from "../../../../../shared/constants/strings";
 import styles from "./AccountBalanceCard.module.css";
 
 export const AccountBalanceCard = () => {
-  const handleTransfer = () => {
-    console.log("Transferring funds...");
-  };
+  const handleTransfer = () => {};
   return (
     <div className={styles.accountBalanceBackground}>
       <div className={styles.accountBalanceContainer}>
