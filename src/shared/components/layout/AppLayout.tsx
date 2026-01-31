@@ -3,8 +3,8 @@ import { useState } from "react";
 import { useResponsive } from "../../hooks/useResponsive";
 import styles from "./Layout.module.css";
 import { SideBar } from "./SideBar";
-import { TopBar } from "./TopBar";
 import { MobileNav } from "./MobileNav";
+import { TopBar } from "./TopBar";
 
 type Props = {
   children: React.ReactNode;
