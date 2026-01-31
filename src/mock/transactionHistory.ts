@@ -5,7 +5,7 @@ export const transactionHistory = [
     description: "Salary Payment - Monthly Wages",
     amount: 20419.03,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "2",
@@ -45,7 +45,7 @@ export const transactionHistory = [
     description: "Bonus Payment",
     amount: 8771.23,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "7",
@@ -53,7 +53,7 @@ export const transactionHistory = [
     description: "Rental Income",
     amount: 18426.74,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "8",
@@ -77,7 +77,7 @@ export const transactionHistory = [
     description: "Gift from Family",
     amount: 24549.11,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "11",
@@ -101,7 +101,7 @@ export const transactionHistory = [
     description: "Refund - Product Return",
     amount: 21405.28,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "14",
@@ -109,7 +109,7 @@ export const transactionHistory = [
     description: "Client Payment Received",
     amount: 20643.12,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "15",
@@ -141,7 +141,7 @@ export const transactionHistory = [
     description: "Internet & Cable Subscription",
     amount: -48784.58,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "19",
@@ -149,7 +149,7 @@ export const transactionHistory = [
     description: "Mobile Phone Bill",
     amount: -22833.67,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "20",
@@ -157,7 +157,7 @@ export const transactionHistory = [
     description: "Gas Bill Payment",
     amount: -24160.33,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "21",
@@ -189,7 +189,7 @@ export const transactionHistory = [
     description: "Health Insurance Premium",
     amount: -40161.62,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "25",
@@ -197,7 +197,7 @@ export const transactionHistory = [
     description: "Gym Membership Fee",
     amount: -43165.91,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "26",
@@ -229,7 +229,7 @@ export const transactionHistory = [
     description: "Electronics Purchase - Best Buy",
     amount: -11192.59,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "30",
@@ -261,7 +261,7 @@ export const transactionHistory = [
     description: "Pet Supplies",
     amount: -29922.06,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "34",
@@ -277,7 +277,7 @@ export const transactionHistory = [
     description: "Office Supplies",
     amount: -46058.99,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "36",
@@ -309,7 +309,7 @@ export const transactionHistory = [
     description: "Food Delivery - Uber Eats",
     amount: -6913.69,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "40",
@@ -325,7 +325,7 @@ export const transactionHistory = [
     description: "Grocery Delivery",
     amount: -11132.88,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "42",
@@ -349,7 +349,7 @@ export const transactionHistory = [
     description: "Fuel/Gas Station",
     amount: -46005.6,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "45",
@@ -365,7 +365,7 @@ export const transactionHistory = [
     description: "Public Transport - Metro Card",
     amount: -39764.71,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "47",
@@ -389,7 +389,7 @@ export const transactionHistory = [
     description: "Toll Road Payment",
     amount: -31933.64,
     currency: "NGN",
-    status: "success",
+    status: "successful",
   },
   {
     id: "50",

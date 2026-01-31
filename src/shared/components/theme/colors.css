@@ -9,4 +9,17 @@
 
   /* Borders */
   --color-border-light: #f4f4f4;
+
+  /* Status Colors */
+  --color-status-success: #22c55e;
+  --color-status-success-bg: #dcfce7;
+  --color-status-success-text: #166534;
+
+  --color-status-pending: #f59e0b;
+  --color-status-pending-bg: #fef3c7;
+  --color-status-pending-text: #978110;
+
+  --color-status-failed: #ef4444;
+  --color-status-failed-bg: #fee2e2;
+  --color-status-failed-text: #991b1b;
 }

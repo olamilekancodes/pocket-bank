@@ -1,8 +1,13 @@
+import { LuCircleArrowOutDownLeft } from "react-icons/lu";
+import { LuCircleArrowOutUpRight } from "react-icons/lu";
+
 import { getTransactionHistory } from "../../../../../mock/transactionHistory";
 import { CustomPagination } from "../../../../../shared/components/ui/Pagination";
+import { StatusChip } from "../../../../../shared/components/ui/StatusChip";
 import StyledTd from "../../../../../shared/components/ui/StyledTableCell";
 import SimpleTableWrapper from "../../../../../shared/components/ui/TableWrapper";
 import { Typography } from "../../../../../shared/components/ui/Typography";
+import { formatCurrency } from "../../../../../shared/components/utils/currencyFormat";
 import { formatDate } from "../../../../../shared/components/utils/dateFormat";
 import { TransactionStrings } from "../../../../../shared/constants/strings";
 import usePagination from "../../../../../shared/hooks/usePagination";
@@ -51,20 +56,35 @@ export const TransactionCard = () => {
       >
         {current_data.map((data: dataType) => {
           const { id, date, description, amount, currency, status } = data;
+
+          const isNegative = amount < 0;
+          const AmountIcon = isNegative
+            ? LuCircleArrowOutUpRight
+            : LuCircleArrowOutDownLeft;
+          const amountClass = isNegative ? styles.expense : styles.income;
+
           return (
             <tr key={id}>
               <StyledTd>
                 <div className={styles.descriptionContainer}>
-                  <Typography variant="p">{description}</Typography>
-                  <Typography variant="p">{formatDate(date)}</Typography>
+                  <span className={`${styles.transactionIcon} ${amountClass}`}>
+                    <AmountIcon size={20} />
+                  </span>
+                  <div className={styles.description}>
+                    <Typography variant="p">{description}</Typography>
+                    <Typography variant="p">{formatDate(date)}</Typography>
+                  </div>
                 </div>
               </StyledTd>
-              <StyledTd>{amount}</StyledTd>
-              <StyledTd>{status}</StyledTd>
+              <StyledTd>{formatCurrency(amount, currency)}</StyledTd>
+              <StyledTd>
+                <StatusChip status={status} />
+              </StyledTd>
             </tr>
           );
         })}
       </SimpleTableWrapper>
+
       <CustomPagination
         current_page={current_page}
         total_pages={total_pages}

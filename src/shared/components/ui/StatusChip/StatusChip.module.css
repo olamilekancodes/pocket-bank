@@ -1,0 +1,24 @@
+.statusChip {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.successful {
+  background-color: var(--color-status-success-bg);
+  color: var(--color-status-success-text);
+}
+
+.pending {
+  background-color: var(--color-status-pending-bg);
+  color: var(--color-status-pending-text);
+}
+
+.failed {
+  background-color: var(--color-status-failed-bg);
+  color: var(--color-status-failed-text);
+}
