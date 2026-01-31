@@ -21,9 +21,6 @@ export const AccountBalanceCard = () => {
   }, [data]);
 
   const currency = data[0]?.currency;
-
-  console.log("currency: ", totalBalance);
-
   const handleTransfer = () => {};
   return (
     <div className={styles.accountBalanceBackground}>

@@ -1,5 +1,17 @@
 .tableContainer {
-  margin: clamp(4rem, 2vw, 1.5rem);
+  margin: 4rem;
+}
+
+@media (max-width: 768px) {
+  .tableContainer {
+    margin: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tableContainer {
+    margin: 1rem;
+  }
 }
 
 .linkContainer {

@@ -1,5 +1,19 @@
 .transactionContainer {
-  padding: clamp(4rem, 1.8vw, 3rem);
+  padding: 4rem;
+}
+
+@media (max-width: 768px) {
+  .transactionContainer {
+    margin-top: 1rem;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .transactionContainer {
+    margin-top: 1rem;
+    padding: 1rem;
+  }
 }
 
 .filterContainer {
