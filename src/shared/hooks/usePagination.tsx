@@ -1,47 +1,65 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 interface PaginationProps<T> {
   data: T[];
   order_control: keyof T;
+  initial_items_per_page?: number;
 }
 
-function usePagination<T>({ data, order_control }: PaginationProps<T>) {
+const isDateString = (val: unknown): val is string => {
+  return typeof val === "string" && !isNaN(Date.parse(val));
+};
+
+function usePagination<T>({
+  data,
+  order_control,
+  initial_items_per_page = 10,
+}: PaginationProps<T>) {
   const [current_page, setCurrentPage] = useState(1);
-  const [items_per_page, setItemPerPage] = useState(10);
-  const [orderBy, setOrderBy] = useState<keyof T>(order_control);
-  const [orderDirection, setOrderDirection] = useState<"asc" | "desc">("asc");
+  const [items_per_page, setItemPerPage] = useState(initial_items_per_page);
 
-  const index_of_last_item = current_page * items_per_page;
-  const index_of_first_item = index_of_last_item - items_per_page;
+  const { current_data, total_pages } = useMemo(() => {
+    const sorted = [...data].sort((a, b) => {
+      const rawA = a[order_control];
+      const rawB = b[order_control];
 
-  const sortedData = [...data].sort((a, b) => {
-    if (a[orderBy] < b[orderBy]) return orderDirection === "asc" ? -1 : 1;
-    if (a[orderBy] > b[orderBy]) return orderDirection === "asc" ? 1 : -1;
-    return 0;
-  });
+      let valA: string | number =
+        typeof rawA === "number" ? rawA : String(rawA);
+      let valB: string | number =
+        typeof rawB === "number" ? rawB : String(rawB);
 
-  const current_data = sortedData.slice(
-    index_of_first_item,
-    index_of_last_item,
-  );
+      if (order_control === "date" || isDateString(rawA)) {
+        valA = new Date(rawA as string).getTime();
+        valB = new Date(rawB as string).getTime();
+      }
 
-  const total_pages = Math.ceil(data.length / items_per_page);
+      if (valA < valB) return 1;
+      if (valA > valB) return -1;
+      return 0;
+    });
 
-  const handleRequestSort = (property: keyof T) => {
-    const isAsc = orderBy === property && orderDirection === "asc";
-    setOrderDirection(isAsc ? "desc" : "asc");
-    setOrderBy(property);
+    const start = (current_page - 1) * items_per_page;
+    const end = start + items_per_page;
+    const total = Math.ceil(data.length / items_per_page);
+
+    return {
+      current_data: sorted.slice(start, end),
+      total_pages: total || 1,
+    };
+  }, [data, current_page, items_per_page, order_control]);
+
+  const handleSetItemPerPage = (num: number) => {
+    setItemPerPage(num);
+    setCurrentPage(1);
   };
 
   return {
-    orderBy,
     current_data,
     total_pages,
     current_page,
-    setCurrentPage,
-    handleRequestSort,
-    setItemPerPage,
     items_per_page,
+    setCurrentPage,
+    setItemPerPage: handleSetItemPerPage,
   };
 }
 

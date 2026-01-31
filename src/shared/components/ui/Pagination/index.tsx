@@ -2,7 +2,7 @@ import React from "react";
 import { MdOutlineArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 
 import styles from "./Pagination.module.css";
-import { useResponsive } from "../../../hooks/useResponsive";
+import { TableStrings } from "../../../constants/strings";
 
 interface CustomPaginationProps {
   current_page: number;
@@ -19,8 +19,6 @@ export const CustomPagination = ({
   setItemPerPage,
   setCurrentPage,
 }: CustomPaginationProps) => {
-  const { isMdUp } = useResponsive();
-
   const handleItemChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setItemPerPage(Number(e.target.value));
     setCurrentPage(1);
@@ -29,7 +27,7 @@ export const CustomPagination = ({
   return (
     <div className={styles.paginationContainer}>
       <div className={styles.paginationInfo}>
-        <span className={styles.paginationText}>Showing</span>
+        <span className={styles.paginationText}>{TableStrings.showing}</span>
         <select
           className={styles.itemsDropdown}
           value={items_per_page}
@@ -43,7 +41,7 @@ export const CustomPagination = ({
             </option>
           ))}
         </select>
-        <span className={styles.paginationText}>results</span>
+        <span className={styles.paginationText}>{TableStrings.result}</span>
       </div>
 
       <div className={styles.paginationControls}>
@@ -59,7 +57,7 @@ export const CustomPagination = ({
 
         <div className={styles.pageIndicator}>
           <span className={styles.current}>{current_page}</span>
-          <span className={styles.of}>of</span>
+          <span className={styles.of}>{TableStrings.of}</span>
           <span className={styles.total}>{total_pages}</span>
         </div>
 

@@ -43,6 +43,24 @@ export const DashboardStrings = {
     { title: "Request", icon: TbArrowBarToLeft },
     { title: "Deposit", icon: PiPlusBold },
   ],
+
+  table: {
+    title: "Recent Transactions",
+    link: "See all",
+  },
+};
+
+// Table
+
+export const TableStrings = {
+  headCells: [
+    { id: "description", label: "Description" },
+    { id: "amount", label: "Amount" },
+    { id: "status", label: "Status" },
+  ],
+  showing: "Showing",
+  result: "results",
+  of: "of",
 };
 
 // Transaction

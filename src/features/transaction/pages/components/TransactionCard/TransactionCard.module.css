@@ -1,25 +1,3 @@
 .transactionContainer {
-  padding: 4rem;
-}
-
-.descriptionContainer {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.transactionIcon {
-  opacity: 70%;
-}
-.income {
-  color: var(--color-status-success-text);
-}
-
-.expense {
-  color: var(--color-status-failed-text);
-}
-.description {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+  padding: clamp(4rem, 1.8vw, 3rem);
 }

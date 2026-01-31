@@ -6,40 +6,26 @@ interface HeadCell {
   label: string;
 }
 
-interface SimpleTableWrapperProps<T> {
-  orderBy?: keyof T;
-  handleRequestSort?: (property: keyof T) => void;
+interface SimpleTableWrapperProps {
   headCells?: HeadCell[];
   children: React.ReactNode;
 }
 
-function SimpleTableWrapper<T>({
-  orderBy,
-  handleRequestSort,
+const SimpleTableWrapper = ({
   headCells = [],
   children,
-}: SimpleTableWrapperProps<T>) {
+}: SimpleTableWrapperProps) => {
   return (
     <div className={styles.tableWrapper}>
       <table className={styles.simpleTable} aria-labelledby="tableTitle">
         {headCells.length > 0 && (
           <thead>
             <tr>
-              {headCells.map((cell) => {
-                const isSorted = orderBy === cell.id;
-                return (
-                  <th
-                    key={String(cell.id)}
-                    scope="col"
-                    className={`${styles.thCell} ${
-                      isSorted ? styles.isSorted : ""
-                    } ${handleRequestSort ? styles.sortable : ""}`}
-                    onClick={() => handleRequestSort?.(cell.id as keyof T)}
-                  >
-                    <span className={styles.thLabel}>{cell.label}</span>
-                  </th>
-                );
-              })}
+              {headCells.map((cell) => (
+                <th key={cell.id} scope="col" className={styles.thCell}>
+                  <span className={styles.thLabel}>{cell.label}</span>
+                </th>
+              ))}
             </tr>
           </thead>
         )}
@@ -47,6 +33,6 @@ function SimpleTableWrapper<T>({
       </table>
     </div>
   );
-}
+};
 
 export default SimpleTableWrapper;
