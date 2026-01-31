@@ -1,77 +1,20 @@
 <<<<<<< HEAD
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Pocket Bank is a premium digital banking dashboard built using React and TypeScript. The application is styled exclusively with pure CSS Modules to ensure a high-performance, zero-dependency UI that remains maintainable as the project grows. The development follows a strict feature-based architectural structure combined with a smart and dumb component approach. This means that logic and presentation are clearly separated: smart components handle state management and business logic, while dumb components are focused solely on rendering the UI based on the props they receive. The application achieves high scalability by organizing the codebase into domain-specific features rather than generic folders.**
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **Security: In a real fintech application, how would you handle the "Auth Token" for the API? Where would you store it, and where would you never store it?**
 
-## React Compiler
+In a real-world fintech application, handling authorization tokens requires extreme caution to prevent theft via Cross-Site Scripting (XSS) or Cross-Site Request Forgery (CSRF). In such an environment, I would handle the Auth Token 		using HttpOnly cookies with the Secure and SameSite flags enabled. This ensures that the token is never accessible to JavaScript, effectively neutralizing common XSS attacks. I would never store sensitive tokens in LocalStorage or SessionStorage, as these are easily accessible to malicious scripts. For enhanced security, a production-ready app would utilize a short-lived access token stored in memory and a long-lived refresh token stored in an HttpOnly cookie to maintain user sessions without exposing sensitive data.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. **Edge Cases: How did you handle floating-point math issues? (e.g., 0.1 + 0.2 !== 0.3 in JS). How would you ensure the balance is accurate in a production app?**
 
-## Expanding the ESLint configuration
+Handling money in JavaScript presents significant challenges due to the way the language handles floating-point math. Simple operations like 0.1 plus 0.2 do not equal 0.3 in standard JavaScript, which can lead to catastrophic rounding errors in a bank ledger. In a production app, I would ensure accuracy by never performing calculations using floats. Instead, all monetary values would be handled as integers in the smallest possible unit, such as kobo. For complex financial calculations, I would implement libraries like Big.js or Decimal.js to handle arbitrary-precision arithmetic, ensuring that the balance shown to the user is always accurate down to the last decimal point.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+3. **Architecture: Explain your folder structure. Why did you separate the types/interfaces from the components?**
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The folder structure of this project is built around the concept of self-contained features. Each feature contains its own components, logic and state, which prevents the "spaghetti code" common in large-scale React apps. I made the deliberate choice to separate types and interfaces into their own dedicated files within these feature folders. This separation is vital for maintaining a clean dependency graph. By isolating interfaces, I import types into multiple hooks, contexts and components without creating circular dependencies that would break the build process. This approach also serves as a form of living documentation, allowing any developer to understand the data structures of a feature before diving into the implementation details.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+4. **Design Handoff: If a designer gave you a UI with no specific font sizes, what logical scale would you use to maintain consistency?**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-=======
-# pocket-bank
->>>>>>> fac8521269bc729d936f49fb892d0bc65c3e48ab
+   When a designer provides a UI without explicit font sizes or spacing rules, I implement a modular scale based on a consistent base unit, typically an 8px grid system. This ensures that all elements in the app are proportional and aesthetically pleasing. For typography, I utilize a logical scale such as the "Major Third" (1.250 ratio), where each font size is a direct multiple of the base 16px size. This creates a clear visual hierarchy between headings, subtext and body copy. By using CSS variables for these scales, I ensure that the entire design system can be adjusted globally by changing a few central values, maintaining harmony throughout the user experience.
