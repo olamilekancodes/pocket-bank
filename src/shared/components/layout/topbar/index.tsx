@@ -23,7 +23,7 @@ export const TopBar = ({ action }: TopBarProps) => {
       <div className={styles.container}>
         <IoNotificationsOutline className={styles.icon} />
         <Avatar name={TopBarStrings.user} size="md" />
-        <Typography variant="p">{TopBarStrings.user}</Typography>
+        <Typography variant="h6">{TopBarStrings.user}</Typography>
       </div>
     </header>
   );
