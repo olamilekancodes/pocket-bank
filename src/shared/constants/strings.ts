@@ -109,6 +109,7 @@ export const TransferFormStrings = {
   accountNumber: {
     validation1: "Account number must be a number",
     validation2: "Account number is required",
+    validation3: "Account number must be 10 digits",
     fieldName: "Account Number",
   },
   amount: {

@@ -6,7 +6,12 @@ export const transferFormSchema = (availableBalance: number) =>
   Yup.object<TransferFormValues>().shape({
     account_number: Yup.number()
       .typeError(TransferFormStrings.accountNumber.validation1)
-      .required(TransferFormStrings.accountNumber.validation2),
+      .required(TransferFormStrings.accountNumber.validation2)
+      .test(
+        "len",
+        `${TransferFormStrings.accountNumber.validation3}`,
+        (val) => val?.toString().length === 10,
+      ),
     amount: Yup.number()
       .typeError(TransferFormStrings.amount.validation1)
       .required(TransferFormStrings.amount.validation2)

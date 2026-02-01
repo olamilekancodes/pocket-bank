@@ -14,6 +14,7 @@ import { transferFormSchema } from "./validation";
 export const TransferForm = ({
   availableBalance,
   closeForm,
+  handleFormSubmit,
 }: Omit<TransferFormProps, "onSubmit">) => {
   const initialValues: TransferFormValues = {
     account_number: "",
@@ -24,9 +25,11 @@ export const TransferForm = ({
   const TransferSchema = transferFormSchema(availableBalance);
 
   const handleSubmit = (
-    _values: TransferFormValues,
+    values: TransferFormValues,
     { resetForm, setSubmitting }: FormikHelpers<TransferFormValues>,
   ) => {
+    handleFormSubmit(values);
+
     toast.success(`${TransferFormStrings.notificationMessage}`);
     resetForm();
     setSubmitting(false);

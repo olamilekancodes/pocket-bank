@@ -1,12 +1,12 @@
-import { getTransactionHistory } from "../../../mock/transactionHistory";
 import usePagination from "../../../shared/hooks/usePagination";
 import { DashboardTable } from "../components/DashboardTableCard";
+import type { DashboardTableContainerProps } from "../type";
 
-export const DashboardTableContainer = () => {
-  const data = getTransactionHistory();
-
+export const DashboardTableContainer = ({
+  transactions,
+}: DashboardTableContainerProps) => {
   const { current_data } = usePagination({
-    data: data,
+    data: transactions,
     order_control: "date",
   });
 
