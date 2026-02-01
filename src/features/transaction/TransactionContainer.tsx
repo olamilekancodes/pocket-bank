@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import type { Transaction } from "../../mock/type";
 import { getTransactionHistory } from "../../mock/transactionHistory";
 import usePagination from "../../shared/hooks/usePagination";
-import { TransactionCard } from "./components/TransactionCard";
+import { TransactionCard } from "./TransactionCard";
 
 type TransactionFilter = "all" | "credit" | "debit";
 

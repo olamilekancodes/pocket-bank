@@ -1,6 +1,6 @@
 import { getTransactionHistory } from "../../../mock/transactionHistory";
 import usePagination from "../../../shared/hooks/usePagination";
-import { DashboardTable } from "../components/DashboardTable";
+import { DashboardTable } from "../components/DashboardTableCard";
 
 export const DashboardTableContainer = () => {
   const data = getTransactionHistory();

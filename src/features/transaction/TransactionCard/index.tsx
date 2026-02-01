@@ -1,10 +1,10 @@
-import { CustomPagination } from "../../../../shared/components/ui/Pagination";
-import { Typography } from "../../../../shared/components/ui/Typography";
-import { TransactionStrings } from "../../../../shared/constants/strings";
-import { TransactionTable } from "../../../shared/TransactionTable";
-import { EmptyDataState } from "../../../../shared/components/ui/EmptyDataState";
+import { EmptyDataState } from "../../../shared/components/ui/EmptyDataState";
+import { CustomPagination } from "../../../shared/components/ui/Pagination";
+import { Typography } from "../../../shared/components/ui/Typography";
+import { TransactionStrings } from "../../../shared/constants/strings";
+import { TransactionTable } from "../../shared/TransactionTable";
+import type { TransactionCardProps } from "../type";
 import styles from "./TransactionCard.module.css";
-import type { TransactionCardProps } from "../../type";
 
 export const TransactionCard = ({
   transactions,

@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-
 **Pocket Bank is a premium digital banking dashboard built using React and TypeScript. The application is styled exclusively with pure CSS Modules to ensure a high-performance, zero-dependency UI that remains maintainable as the project grows. The development follows a strict feature-based architectural structure combined with a smart and dumb component approach. This means that logic and presentation are clearly separated: smart components handle state management and business logic, while dumb components are focused solely on rendering the UI based on the props they receive. The application achieves high scalability by organizing the codebase into domain-specific features rather than generic folders.**
-
 
 1. **Security: In a real fintech application, how would you handle the "Auth Token" for the API? Where would you store it, and where would you never store it?**
 
-In a real-world fintech application, handling authorization tokens requires extreme caution to prevent theft via Cross-Site Scripting (XSS) or Cross-Site Request Forgery (CSRF). In such an environment, I would handle the Auth Token 		using HttpOnly cookies with the Secure and SameSite flags enabled. This ensures that the token is never accessible to JavaScript, effectively neutralizing common XSS attacks. I would never store sensitive tokens in LocalStorage or SessionStorage, as these are easily accessible to malicious scripts. For enhanced security, a production-ready app would utilize a short-lived access token stored in memory and a long-lived refresh token stored in an HttpOnly cookie to maintain user sessions without exposing sensitive data.
+In a real-world fintech application, handling authorization tokens requires extreme caution to prevent theft via Cross-Site Scripting (XSS) or Cross-Site Request Forgery (CSRF). In such an environment, I would handle the Auth Token using HttpOnly cookies with the Secure and SameSite flags enabled. This ensures that the token is never accessible to JavaScript, effectively neutralizing common XSS attacks. I would never store sensitive tokens in LocalStorage or SessionStorage, as these are easily accessible to malicious scripts. For enhanced security, a production-ready app would utilize a short-lived access token stored in memory and a long-lived refresh token stored in an HttpOnly cookie to maintain user sessions without exposing sensitive data.
 
 2. **Edge Cases: How did you handle floating-point math issues? (e.g., 0.1 + 0.2 !== 0.3 in JS). How would you ensure the balance is accurate in a production app?**
 

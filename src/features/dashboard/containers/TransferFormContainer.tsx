@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TransferForm } from "../components/TransferForm";
+import { TransferForm } from "../components/TransferFormCard";
 import { getTransactionHistory } from "../../../mock/transactionHistory";
 import type { Transaction } from "../../../mock/type";
 import type { TransferContainerProps } from "../type";

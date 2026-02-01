@@ -1,6 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import type { FormikHelpers } from "formik";
-import * as Yup from "yup";
 import { toast } from "react-hot-toast";
 
 import styles from "./TransferForm.module.css";
@@ -10,6 +9,7 @@ import {
   stripCommas,
 } from "../../../../shared/components/utils/formatter";
 import { TransferFormStrings } from "../../../../shared/constants/strings";
+import { transferFormSchema } from "./validation";
 
 export const TransferForm = ({
   availableBalance,
@@ -21,19 +21,7 @@ export const TransferForm = ({
     bank_name: "",
   };
 
-  const TransferSchema = Yup.object().shape({
-    account_number: Yup.number()
-      .typeError(`${TransferFormStrings.accountNumber.validation1}`)
-      .required(`${TransferFormStrings.accountNumber.validation2}`),
-    amount: Yup.number()
-      .typeError(`${TransferFormStrings.amount.validation1}`)
-      .required(`${TransferFormStrings.amount.validation2}`)
-      .moreThan(0, `${TransferFormStrings.amount.validation3}`)
-      .max(availableBalance, `${TransferFormStrings.amount.validation4}`),
-    bank_name: Yup.string().required(
-      `${TransferFormStrings.bankName.validation1}`,
-    ),
-  });
+  const TransferSchema = transferFormSchema(availableBalance);
 
   const handleSubmit = (
     _values: TransferFormValues,
