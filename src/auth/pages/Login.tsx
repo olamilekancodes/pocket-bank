@@ -12,6 +12,7 @@ import { Typography } from "../../shared/components/ui/Typography";
 import { LoginStrings } from "../../shared/constants/strings";
 import { useState } from "react";
 import logo from "../../assets/logo/logo1.png";
+import { accountLoginSchema } from "./validation";
 
 export const LoginPage = () => {
   const { login } = useAuth();
@@ -19,14 +20,7 @@ export const LoginPage = () => {
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const LoginSchema = Yup.object().shape({
-    email: Yup.string()
-      .email(`${LoginStrings.email.validation1}`)
-      .required(`${LoginStrings.email.validation1}`),
-    password: Yup.string()
-      .min(6, `${LoginStrings.password.validation1}`)
-      .required(`${LoginStrings.password.validation2}`),
-  });
+  const LoginSchema = accountLoginSchema;
 
   const initialValues: LoginFormValues = {
     email: "",
